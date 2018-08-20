@@ -1,0 +1,5 @@
+.bumpversion.cfg
+*.kdev4
+tol.egg-info/
+*.pyc
+
