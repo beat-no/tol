@@ -1,5 +1,11 @@
 from setuptools import setup
 
+
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
+
 setup(
     name='tol',
     version='0.0.1',
@@ -7,5 +13,6 @@ setup(
     author='Øystein S. Haaland',
     author_email='oystein@beat.no',
     description="tøl n1 (norrønt tól 'reiskap') kollektivt: (små)saker",
-    #url='https://gitlab.dev.beat.no/ops/beat-python-utils'
+    long_description=readme(),
+    url='https://github.com/beat-no/tol'
 )
