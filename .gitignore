@@ -2,4 +2,6 @@
 *.kdev4
 tol.egg-info/
 *.pyc
+build
+dist
 
