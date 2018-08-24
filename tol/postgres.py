@@ -4,13 +4,13 @@ ADMIN_USER = 'postgres'
 DEFAULT_PORT = 5432
 
 
-def enter(db_name: str, options: str=None) -> str:
+def enter(db_name, options=None):
     return 'psql --host=127.0.0.1 {options} {db_name}'.format(
         db_name=db_name,
         options=' %s ' % options if options else ' ')
 
 
-def psql(query: str, port=DEFAULT_PORT, db_name: str=None, user: str=None) -> str:
+def psql(query, port=DEFAULT_PORT, db_name=None, user=None):
     return 'psql --host=127.0.0.1{port}{user}{command}{db_name}'.format(
         port=' --port=%s' % port,
         user=' --user=%s' % user if user else '',
@@ -18,20 +18,14 @@ def psql(query: str, port=DEFAULT_PORT, db_name: str=None, user: str=None) -> st
         db_name=' %s' % db_name if db_name else '')
 
 
-def psql_from_file(filepath: str, db_name: str=None, user: str=None) -> str:
+def psql_from_file(filepath, db_name=None, user=None):
     return 'psql --host=127.0.0.1{user}{db_name} < {filepath}'.format(
         user=' --user=%s' % user if user else '',
         db_name=' %s' % db_name if db_name else '',
         filepath=filepath)
 
 
-def create_pgpass_line(
-    database: str,
-    username: str,
-    password: str,
-    host: str='127.0.0.1',
-    port: int=DEFAULT_PORT
-) -> str:
+def create_pgpass_line(database, username, password, host='127.0.0.1', port=DEFAULT_PORT):
     return '{host}:{port}:{database}:{username}:{password}'.format(
         host=host,
         database=database,
@@ -40,7 +34,7 @@ def create_pgpass_line(
         password=password)
 
 
-def backup(db_name: str, port: int=DEFAULT_PORT, options: str=None) -> str:
+def backup(db_name, port=DEFAULT_PORT, options=None):
     """
     Backup
     
