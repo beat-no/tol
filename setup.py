@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='tol',
-    version='0.0.2',
+    version='0.0.3',
     packages=['tol'],
     author='Øystein S. Haaland',
     author_email='oystein@beat.no',
