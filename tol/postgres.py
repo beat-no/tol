@@ -52,5 +52,5 @@ def backup(db_name, port=DEFAULT_PORT, options=None):
 def restore(filepath, db_name=None, options=None):
     return 'pg_restore --host=127.0.0.1{options} {db_name} {filepath}'.format(
         options=' %s' % options if options else '',
-        db_name=db_name if db_name else '',
+        db_name='--dbname=%s' % db_name if db_name else '',
         filepath=filepath)
