@@ -10,7 +10,7 @@ def readme():
 
 setup(
     name='tol',
-    version='0.0.4',
+    version='0.0.5',
     packages=['tol'],
     author='Øystein S. Haaland',
     author_email='oystein@beat.no',
