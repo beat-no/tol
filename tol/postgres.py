@@ -2,6 +2,7 @@ from datetime import date
 
 ADMIN_USER = 'postgres'
 DEFAULT_PORT = 5432
+DEFAULT_HOST = '127.0.0.1'
 
 
 def enter(db_name, options=None):
@@ -10,9 +11,10 @@ def enter(db_name, options=None):
         options=' %s ' % options if options else ' ')
 
 
-def psql(query, port=DEFAULT_PORT, db_name=None, user=None):
-    return 'psql --host=127.0.0.1{port}{user}{command}{db_name}'.format(
-        port=' --port=%s' % port,
+def psql(query, host=None, port=None, db_name=None, user=None):
+    return 'psql{host}{port}{user}{command}{db_name}'.format(
+        host=' --host=%s' % host if host else '',
+        port=' --port=%s' % port if port else '',
         user=' --user=%s' % user if user else '',
         command=' --command="%s"' % query,
         db_name=' %s' % db_name if db_name else '')
