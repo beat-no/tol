@@ -6,3 +6,7 @@ def mkdir(path, mode=None):
 
 def chown(user, path):
     return 'chown --recursive %s:%s %s' % (user, user, path)
+
+
+def exists(path):
+    return "ls %s" % path
