@@ -9,4 +9,4 @@ def chown(user, path):
 
 
 def exists(path):
-    return "ls %s" % path
+    return "test -e %s" % path
