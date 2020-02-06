@@ -10,3 +10,16 @@ def chown(user, path):
 
 def exists(path):
     return "test -e %s" % path
+
+
+def by_timestamp(path, depth=1, type='f', name='*', long=False):
+    """
+    List files sorted by timestamp
+    """
+    return 'find {path} {mindepth} {maxdepth} {name} {type} | xargs {ls_cmd}'.format(
+        path=path,
+        mindepth='-mindepth %d' % depth,
+        maxdepth='-maxdepth %d' % depth,
+        name='-name "%s"' % name,
+        type='-type %s' % type,
+        ls_cmd='ls --directory -1t%s' % ('l' if long else ''))
