@@ -4,7 +4,6 @@ def get_short_hash(repo_path):
     """
     return "git -C {repo_path} log --pretty=format:'%h' -n 1".format(repo_path=repo_path)
 
-
 def get_branch(repo_path):
     """
     Get git branch

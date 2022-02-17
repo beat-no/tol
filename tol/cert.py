@@ -1,7 +1,6 @@
 def domain_to_star_cert_filename(domain):
     return "_".join(["star"] + domain.split("."))
 
-
 def create_csr_command(domain, country_code, state, locality, organization):
     filename = domain_to_star_cert_filename(domain)
     
@@ -15,7 +14,6 @@ def create_csr_command(domain, country_code, state, locality, organization):
         domain
     )
     return cmd
-
 
 def create_self_sign_csr_command(domain):
     filename = domain_to_star_cert_filename(domain)

@@ -3,20 +3,17 @@ def install(packages, release=None):
         release=' -t %s' % release if release else ' ',
         packages=" ".join(packages))
 
-
 def import_apt_key_from_url(url):
     """
     Import a GPG key for a repository into apt's keychain from given url
     """
     return 'wget -qO - {url} | apt-key add -'.format(url=url)
 
-
 def repo_sources_line(uri, distro, components):
     return "deb {uri} {distro} {components}".format(
         uri=uri,
         distro=distro,
         components=components)
-
 
 def update():
     """
