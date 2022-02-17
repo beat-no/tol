@@ -3,14 +3,11 @@ def mkdir(path, mode=None):
         path=path,
         mode='--mode %s' % mode if mode else '')
 
-
-def chown(user, path):
-    return 'chown --recursive %s:%s %s' % (user, user, path)
-
+def chown(user:str, path:str, group:str=None):
+    return f"chown --recursive {user}:{group or user} {path}"
 
 def exists(path):
     return "test -e %s" % path
-
 
 def by_timestamp(path, depth=1, type='f', name='*', long=False):
     """
