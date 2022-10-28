@@ -3,6 +3,11 @@ def install(packages, release=None):
         release=' -t %s' % release if release else ' ',
         packages=" ".join(packages))
 
+def uninstall(packages, yes=True):
+    return "apt-get {yes} remove {packages}".format(
+        yes=("--yes" if yes else ""),
+        packages=" ".join(packages))
+
 def import_apt_key_from_url(url):
     """
     Import a GPG key for a repository into apt's keychain from given url
